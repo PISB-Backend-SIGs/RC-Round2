@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding page rc round 2 </title>
+
+    <link rel="stylesheet" href="{% static 'app1/css/codingPage.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+</head>
+<body class="mainBody">
+  <nav class="navbar  mb-0 navbar-expand-lg navbarr">
+    <div class="container-fluid">
+      <a class="navbar-brand navvi" href="#" style="padding: 0px"><img src="{% static 'app1/images/clashwhite.png' %}"
+          alt="Clash Logo" height="30px" /></a>
+      <a class="navbar-brand navvi timer" href="#" style="margin-left: 20px">TIMER
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="color: white"></i>
+      </button>
+      <div class="collapse navbar-collapse stroke" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link active navvi"
+              aria-current="page"
+              href="{% url 'questions' %}"
+              style="margin-left: 10px; margin-right: 10px"
+              >Question Hub</a
+            >
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link navvi" aria-current="page" href="{% url 'submission' %}"
+              style="margin-left: 10px; margin-right: 10px ; color: lightblue;">Submissions</a>
+          </li>
+
+          <li class="nav-item navvi">
+            <a class="nav-link navvi" style="margin-left: 10px; margin-right: 10px; color: lightblue; cursor: pointer"
+              href="{% url 'leaderboard' %}" data-bs-target="#LogoutModal">Leaderboard</a>
+          </li>
+          <li class="nav-item navvi">
+            <a class="nav-link navvi" style="margin-left: 10px; margin-right: 10px; color: lightblue; cursor: pointer"
+              data-bs-toggle="modal" data-bs-target="#LogoutModal">Logout</a>
+
+
+            <!-- <button type="button" class="btn btn-primary">
+              Launch demo modal
+            </button> -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    Are you sure you want to logout ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
+                      Cancel
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                      <a href="{% url 'logout' %}">Logout</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <a class="navbar-brand navvi pisblogo" href="#" style="padding: 0px; margin-left: 20px"><img
+          src="{% static 'app1/images/pisblogo.png' %}" alt="Clash Logo" height="30px" /></a>
+    </div>
+  </nav>
+  <!-- Hearder strip code starts -->
+<section class="head-strip">
+         <!-- Question numbers -->
+   <div class="questions ">
+     <div class="queno"><button type="button  "class=" btn  btn-dark qb  " id="qbtn1" onclick="location.href='/question/1'">1</button></div>
+     <div class="queno"><button type="button " class=" btn btn-dark qb  " id="qbtn2" onclick="location.href='/question/2'">2</button></div>
+     <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn3" onclick="location.href='/question/3'">3</button></div>
+     <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn4" onclick="location.href='/question/4'">4</button></div>
+     <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn5" onclick="location.href='/question/5'">5</button></div>
+     <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn6" onclick="location.href='/question/6'">6</button></div>
+    
+   </div>
+        <!-- Score  -->
+   <div class="score-time">
+    <div class="btn-group mx-auto" role="group" aria-label="Basic outlined example">
+        <div type="button" class="btn btn-outline-dark "id="score">+7</div>
+      </div>
+   </div>
+</section>
+  <!-- Header strip ends  -->
+
+  <!-- The main Section  -->
+
+<section class="coding ">
+          <!-- the Question section starts here  -->
+  <div class="questionpart">
+    <div class="que-name">
+      <h3> {{question.q_title}} </h3>
+  </div>
+   <div class="quepart que-description" style="height: auto;">
+    <h3>Question Description</h3>
+    {{question.q_descrp}}
+   </div>
+   <div class="quepart que-constrains">
+    <h3>Question Constraints</h3>
+    {{question.q_const}}
+   </div>
+   <div class=" quepart que-examples">
+    <h3>Examples</h3>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia consequuntur ipsum culpa omnis voluptatum harum animi totam minus asperiores! Exercitationem nam voluptates iusto deleniti voluptatibus non perspiciatis atque asperiores! Inventore optio sapiente itaque cupiditate eos necessitatibus aperiam ullam facere quae ut possimus harum laboriosam, ducimus odit, eum sit consectetur vel, consequuntur dicta quas.
+   </div>
+ </div>
+
+
+       <!-- The code Editor Section Starts here ... -->
+   <form action="" method="POST" id="code_form">
+    {% csrf_token %}
+
+   
+       <div class="codingpart">
+
+    <div class="drop-buttons">
+        <div class="lang">
+            <select class="form-select langbtn btn-outline-dark " id="langbtn" aria-label="Default select example" style="background-color: rgba(3, 111, 212, 0.696);">
+                {% comment %} <option disabled selected value=""> Choose Language</option> {% endcomment %}
+                <option value="python" selected>Python</option>
+                <option value="cpp" {% if code_lang_cpp %}selected{% endif %}>C++</option>
+                <option value="c" {% if code_lang_c %}selected{% endif %}>C</option>
+              </select>
+        </div>
+        <div class="choosefile" >
+        
+         <input type="file"  class="form-control choosef btn-outline-dark"  id="customFile" accept=".c, .cpp, .py" />
+        </div>
+
+    </div>
+    <div class="code-section">
+      <div   class="codehere" id="editor1">
+         
+      </div>
+
+      <!-- comsole section -->
+       <div class="collapse mainconsole" id="test-cases" >
+         <h3> TEST-CASES</h3>
+
+        <div class="consoleBlocks">
+
+         <div class="block1">
+           <h5>// Custom Input  </h5>
+           <textarea id="testip">{{question.q_sip}}</textarea>
+         </div>
+         <div class="block1">
+           <h5>This is Output </h5>
+           <textarea id="testop" disabled >{{question.q_sop}}</textarea>
+         </div>
+
+        </div>
+
+        <!-- To show testcases on submit -->
+        <div class="Status" id="Status">
+          
+        </div>
+      </div>
+      
+    </div>
+
+    
+
+    <!-- The Submit Button Code Starts here  -->
+    <div class="submit-strip">
+      <div class="console">
+        <button type="button" class="console-btn d-flex flex-wrap " data-toggle="collapse" id="console-btn"data-target="#test-cases" >
+          Console
+          <ion-icon name="chevron-up-outline" class="up mx-2 "></ion-icon>
+          <ion-icon name="chevron-down-outline" class="down hidden"></ion-icon>
+        </button>
+    </div>
+      <div class="submit-btn">
+        <button type="button" class="run-btn   btn-outline-dark" id="run_code">Run</button>
+      </div>
+      <div class="submit-btn">
+        <button type="button" class="run-btn  btn-outline-dark" id="submit_code">Submit</button>
+      </div>
+    </div>
+
+   </div>
+  </form>
+</section>
+
+{% comment %} 
+<div class="overallStatus">
+  Answer is Correct /Failed.
+</div>
+<div class="alltext d-flex flex-wrap ">
+ <div class="test d-flex mx-3"> Test Case 1   <ion-icon name="close-circle-outline" class="mx-3 my-1" size="large"></ion-icon> </div>
+ <div class="test d-flex mx-3"> Test Case 2  <ion-icon name="checkmark-circle-outline" class="mx-3 my-1" size="large"></ion-icon></div>
+ <div class="test d-flex mx-3"> Test Case 3  <ion-icon name="checkmark-circle-outline" class="mx-3 my-1" size="large"></ion-icon></div>
+ <div class="test d-flex mx-3"> Test Case 4  <ion-icon name="checkmark-circle-outline" class="mx-3 my-1" size="large"></ion-icon></div>
+</div> 
+{% endcomment %}
+<!-- The Min Section ENds Here  -->
+<footer class="text-center fixed-bottom footerr">
+  <div class=" container-fluid">
+      <div class="footer-text pt-3 pb-3">PISB <span>&copy</span></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="index.js"></script>     <!--The Javascript File .-->
+<script src="{% static 'app1/js/codingPage.js' %}"></script>
+
+
+
+<script >
+  // console.log('{{isSolved}} | tojson')
+  // console.log(" {{user_code}} | safe ")
+  // console.log("SDAD")
+  if ('{{isSolved}}'){
+    console.log("enterd in if")
+    // editor.session.setValue({{ user_code| safe}}) 
+  }
+  
+  var que_no='{{question.q_id}}';
+  var element=document.getElementById( "qbtn"+que_no);
+  element.classList.add("glow");
+
+  
+
+  
+  </script>
+
+{% include 'app1/ajax/ajax.html' %}
+</body>
+</html>

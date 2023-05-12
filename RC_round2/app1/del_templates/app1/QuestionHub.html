@@ -1,0 +1,129 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'app1/css/quehubstyle.css' %}">
+</head>
+
+<body class="body1">
+
+  <nav class="navbar navbar-expand-lg navbarr">
+    <div class="container-fluid">
+      <a class="navbar-brand navvi" href="#" style="padding: 0px"><img src="{% static 'app1/images/clashwhite.png' %}"
+          alt="Clash Logo" height="30px" /></a>
+      <a class="navbar-brand navvi timer" href="#" style="margin-left: 20px">{{team.Time}}
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="color: white"></i>
+      </button>
+      <div class="collapse navbar-collapse stroke" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link active navvi"
+              aria-current="page"
+              href="{% url 'questions' %}"
+              style="margin-left: 10px; margin-right: 10px"
+              >Question Hub</a
+            >
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link navvi" aria-current="page" href="{% url 'submission' %}"
+              style="margin-left: 10px; margin-right: 10px ; color: lightblue;">Submissions</a>
+          </li>
+
+          <li class="nav-item navvi">
+            <a class="nav-link navvi" style="margin-left: 10px; margin-right: 10px; color: lightblue; cursor: pointer"
+              href="{% url 'leaderboard' %}" data-bs-target="#LogoutModal">Leaderboard</a>
+          </li>
+          <li class="nav-item navvi">
+            <a class="nav-link navvi" style="margin-left: 10px; margin-right: 10px; color: lightblue; cursor: pointer"
+              data-bs-toggle="modal" data-bs-target="#LogoutModal">Logout</a>
+
+
+            <!-- <button type="button" class="btn btn-primary">
+              Launch demo modal
+            </button> -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    Are you sure you want to logout ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
+                      Cancel
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                      <a href="{% url 'logout' %}">Logout</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <a class="navbar-brand navvi pisblogo" href="#" style="padding: 0px; margin-left: 20px"><img
+          src="{% static 'app1/images/pisblogo.png' %}" alt="Clash Logo" height="30px" /></a>
+    </div>
+  </nav>
+
+  <div class="Heading">
+    <H2>Question Hub</H2>
+  </div>
+  <div class="backgr">
+    <table class="question-table table table-responsive-sm ">
+
+      <!-- <thead class="table-head">
+
+        <th scope="col">SR.NO</th>
+        <th scope="col">QUESTION TITLE</th>
+        <th scope="col">SUBMISSIONS</th>
+        <th scope="col">ACCURACY</th>
+        <th scope="col">ATTEMPT</th>
+
+      </thead> -->
+      <div class="container-sm">
+
+      </div>
+      <div class="space">
+        <tbody>
+          <div class="badadiv">
+
+
+          <!--  the code is writen using the java scrip  by mappig technique  -->
+        </div>
+        </tbody>
+      </div>
+
+    </table>
+    
+  <footer class="text-center fixed-bottom footerr">
+    <div class=" container-fluid">
+      <div class="footer-text pt-3 pb-3">PISB <span>&copy</span></div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+  <script src="{% static 'app1/js/QueHub.js' %}"></script>
+</body>
+
+</html>
