@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coding page rc round 2 </title>
+  <title>Coding Window</title>
   <link rel="stylesheet" href="{% static 'css/rc.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -19,18 +19,92 @@
 </head>
 
 <body class="mainBody">
+  <nav class="navbar navbar-expand-lg navbarr">
+    <div class="container-fluid">
+      <a class="navbar-brand navvi" href="#" style="padding: 0px"><img src="{% static 'images/revb.png' %}" alt="Clash Logo" height="60px" width="70px"/></a>
+      <a class="navbar-brand navvi timer" id="timerDisplay" style="margin-left: 20px;color:white">
+        TIMer
+      </a>
 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="color: white"></i>
+      </button>
+      <div class="collapse navbar-collapse stroke" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link active navvi"
+              aria-current="page"
+              href="{% url 'questions' %}"
+              style="margin-left: 10px; margin-right: 10px"
+              >Question Hub</a
+            >
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link navvi" aria-current="page" href="{% url 'submission' %}"
+              style="margin-left: 10px; margin-right: 10px ; color: lightblue;">Submissions</a>
+          </li>
+
+          <li class="nav-item navvi">
+            <a class="nav-link navvi" style="margin-left: 10px; margin-right: 10px; color: lightblue; cursor: pointer"
+              href="{% url 'leaderboard' %}" data-bs-target="#LogoutModal">Leaderboard</a>
+          </li>
+          <li class="nav-item navvi">
+            <a class="nav-link navvi" style="margin-left: 10px; margin-right: 10px; color: lightblue; cursor: pointer"
+              data-bs-toggle="modal" data-bs-target="#LogoutModal">Logout</a>
+
+
+            <!-- <button type="button" class="btn btn-primary">
+              Launch demo modal
+            </button> -->
+
+            <!-- Modal -->
+          </li>
+        </ul>
+      </div>
+      <a class="navbar-brand navvi pisblogo" href="https://pictieee.in/" style="padding: 0px; margin-left: 20px"><img
+        src="{% static 'images/pisblogo.png' %}" alt="Clash Logo" height="30px" /></a>
+      </div>
+    </nav>
+    
+    <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            Are you sure you want to logout ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
+              Cancel
+            </button>
+            <button type="button" class="btn btn-danger">
+              <a href="{% url 'logout' %}">Logout</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+     
   <!-- Hearder strip code starts -->
 
   <section class="head-strip">
     <!-- Question numbers -->
     <div class="questions ">
-      <div class="queno"><button type="button  " class=" btn  btn-dark" id="qbtn">1</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   " id="qbtn">2</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   " id="qbtn">3</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   " id="qbtn">4</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   " id="qbtn">5</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   " id="qbtn">6</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn1">1</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn2">2</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn3">3</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn4">4</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn5">5</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn6">6</button></div>
 
     </div>
     <!-- Score  -->
@@ -51,16 +125,18 @@
       <div class="question-sec">
         <div class="que-name">
           <h3> Question Heading </h3>
+          {{ question.q_title }}
         </div>
         <div class="quepart que-description" style="height: auto;">
           <h3>Question Description</h3>
+          <div class="queimg text-center">
+            <img src="http://images5.fanpop.com/image/photos/30600000/random-random-30660647-1280-1024.png" alt="loding">
+          </div>
           {{ question.q_descrp }}
         </div>
         <div class="quepart que-constrains">
           <h3>Question Constraints</h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia consequuntur ipsum culpa omnis voluptatum
-          harum animi totam minus asperiores! Exercitationem nam voluptates iusto deleniti voluptatibus non perspiciatis
-          atque asperiores! Inventore optio sapiente itaque cupiditate eos necessitatibus aperiam ullam
+          {{ question.q_const }}
         </div>
       </div>
       <div class="rc-input-output">
@@ -93,10 +169,10 @@
             <option value="python">Python</option>
           </select>
         </div>
-        <div class="choosefile">
+        <!-- <div class="choosefile">
 
           <input type="file" class="form-control choosef btn-outline-dark" id="customFile" accept=".c, .cpp, .py" />
-        </div>
+        </div> -->
 
       </div>
       <div class="code-section">
@@ -161,6 +237,11 @@
     </div>
 
   </section>
+  <footer class="text-center fixed-bottom footerr">
+    <div class=" container-fluid">
+        <div class="footer-text pt-3 pb-3">PISB <span>&copy</span></div>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -204,6 +285,11 @@
       }
 
     }, 0)
+
+
+    var que_no='{{question.q_id}}';
+  var element=document.getElementById( "qbtn"+que_no);
+  element.classList.add("glow");
   </script>
 
 </body>

@@ -1,18 +1,19 @@
 /* Head strip for ques no , score and timer */
 .mainBody{
-    background-image: linear-gradient(201deg, #064346 -23%, #12100e 130%);
-    height: 100vh;
+    
+    /* height: 100vh; */
     width: 100vw;
+    background-image: linear-gradient(201deg, #02191b -23%, #12100e 130%);
 }
 .head-strip{
     display: grid;
     grid-template-columns: 50% 50%;
     height: 7vh;
-    margin: 5px  auto;
-    width: 98vw;
+    /* margin:  auto; */
+    /* width: 98vw; */
     border: 1px solid black;
-    border-radius: 20px;
-    background: #022527;  
+    /* border-radius: 20px; */
+    /* background: #022527;   */
 }
 .queno{
     display: inline ;
@@ -20,10 +21,15 @@
 }
 .questions{
     margin: auto;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* background: #161f34; */
+    width: 54vw;
    
 }
-#qbtn{
-    border-radius: 100%; 
+.qb{
+    /* border-radius: 100%;  */
     background-color: linear-gradient(201deg, #145f63 -23%, #3c3935 130%);  
     border-width: 3px;
     border-color: rgba(122, 206, 86, 0.911);;
@@ -38,13 +44,17 @@
     background-color: #0f5054;
     color: #FFFFFF;
 }
-#qbtn:hover
+.qb:hover
 {
     color: white;
 }
 
 .score-time{
     margin: auto 5vw auto auto;
+}
+.glow{
+    border-color: #0a2601;
+    box-shadow: 0 0 12px #92f499;
 }
 
 
@@ -81,6 +91,7 @@
     justify-content: center;
     padding:10px ;
     row-gap: 30px;
+    background-image: linear-gradient(201deg, #064346 -23%, #12100e 130%);
 
 }
 
@@ -105,6 +116,7 @@
     width: 90%;
     display: grid;
     grid-template-rows: 7% 88% 7%;
+   
 }
 .code-section{
     
@@ -255,6 +267,12 @@
     text-align:justify;
 }
 
+@media (min-width: 768px){
+    .navbar-nav {
+        float: right !important;
+        margin: 0;
+    }
+}
 
 /* Media query for Responsiveness */
     @media(max-width:900px){
@@ -303,7 +321,7 @@
 /* width */
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
   
   /* Track */
@@ -332,6 +350,12 @@
 
 
   }
+  .navbar, footer {
+    background-image: linear-gradient(315deg, #022527 0%, #0b3132 270%);
+    color: #ffffff;
+    font-family: 'Poppins',sans-serif;
+  }
+  
 
   .block1,.block2{
     margin: 5px 10px;
@@ -444,4 +468,22 @@
     color: white;
     height: 80px;
     width: 100%;
+}
+
+.navbar{
+    margin-bottom: 0px!important;
+}
+.queimg{
+
+    height: 200px;
+    width: 300px;
+    padding: 4px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;;
+}
+.queimg img{
+    height: 100%;
+    width:100%;
 }
