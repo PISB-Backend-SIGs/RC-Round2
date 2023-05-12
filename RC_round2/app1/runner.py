@@ -9,18 +9,15 @@ import signal,resource
 #It will give current file path 
 #And our other files are in same folder
 FilePath = os.path.dirname(__file__)
-# print("File Path ",FilePath)
 
 #File in which users code is present
-PythonFile = f"src/code.py"
-CppFile = f"src/code.cpp"
-CFile = f"src/code.c"
-#File in which ip testcase is present
-# ip_file_path = f"{FilePath}/input.txt"
-ip_file_path = open(f'{FilePath}/input.txt','r')
-# open(f'{FilePath}/ip.txt','r')
+PythonFile = f"{FilePath}/code.py"
+CppFile = f"{FilePath}/code.cpp"
+CFile = f"{FilePath}/code.c"
 
-CONTAINER_NAME="container2"
+ip_file_path = open(f'{FilePath}/input.txt','r')
+
+CONTAINER_NAME="container1"
 
 ErrorCodes={
   "AC": 0, 
@@ -35,43 +32,38 @@ ceErrors = [ "SyntaxError:","NameError:","TypeError:","ImportError:","Indentatio
 reErrors = ["ZeroDivisionError:","IndexError:","KeyError:","AttributeError:","ValueError:","RuntimeError","StopIteration","RecursionError","OSError"]
 #"MemoryError"
 
-#Timeout Signal
+# Timeout Signal
+#--------------------------------------------------------------------------
 TimeoutLimit = 5
 def set_time_limit(time_limit):
     def signal_handler(signum, frame):
-        raise TimeoutError
+        raise TimeoutError("Time Limit Exceeded")
     signal.signal(signal.SIGALRM, signal_handler)
     signal.alarm(TimeoutLimit)
 
-MemoryLimit = 256 * 1024 * 1024   
+MemoryLimit = 256*1024*1024
 def set_memory_limit():
     resource.setrlimit(resource.RLIMIT_CPU, (TimeoutLimit, TimeoutLimit))
     resource.setrlimit(resource.RLIMIT_AS, (MemoryLimit, MemoryLimit))
 
+
 def execute_python_code():
     try:
-        # set_time_limit(TimeoutLimit)
-
-        process = subprocess.Popen(['docker','exec',f'{CONTAINER_NAME}','python3', f'{PythonFile}'],stdin=ip_file_path,stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit)
+        process = subprocess.Popen(f"docker exec {CONTAINER_NAME} sh -c 'timeout 1s python3 src/code.py < src/input.txt'",stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_time_limit(TimeoutLimit),shell=True)
             
         # # wait for the command to finish and get the stdout and stderr
         stdout, stderr = process.communicate()
-        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-        # print("stout : ",stdout," stderr ",stderr)
+        print("-------------------------------------------------------------------------------")
+
         ListOfReturn =stderr.decode().strip().split()
-        # try:
-        #    ListOfReturn[1] = "<string>"
-        #    print("after change listorerrors : ",ListOfReturn)
-        # except:
-        #     pass
-
-        # print("list of errors : ",ListOfReturn)
-        # signal.alarm(0)
-
+        print("H:",ListOfReturn, "returncode",process.returncode)
         # check for any errors in stderr
         if process.returncode != 0:
             process.kill()
-            if any(error in ListOfReturn for error in ceErrors):
+            if process.returncode==137:
+                CopyReturnCode(stderr, ErrorCodes["MLE"])
+                #return MLE
+            elif any(error in ListOfReturn for error in ceErrors):
                 CopyReturnCode(stderr,ErrorCodes["CE"])
                 print("CE")
                 # return "CE"
@@ -132,47 +124,50 @@ def CopyOpFile(stdout,rCode):
     rcode.write(str(rCode))
     # rCode.write(rCode)
 
-def RunByLang(lang):
-    if (lang == "python"):
-        process = subprocess.Popen(['python3', f'{PythonFile}'],stdin=ip_file_path,stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit)
-        return process
-    elif (lang == "cpp"):
-        args = ['g++', '-o', f'{FilePath}/code', CppFile] # compile the file and generate an output executable
-        process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit)
-        print("llllllllllllllllllllllllllllllllllll")
-        # print(process.returncode)
-        output, error = process.communicate() # get the output and error messages
-        # print(output,error)
-        if not error:
-            executable = f'{FilePath}/./code'
-            process = subprocess.Popen(executable, stdin=ip_file_path,stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit,shell=False)
-            output, error = process.communicate()
-            print("llllllllllllllllllllllllllllllllllll")
-            # print(process.returncode)
-            return process
-        else:
-            return process
+# def RunByLang(lang):
+#     if (lang == "python"):
+#         process = subprocess.Popen(['python3', f'{PythonFile}'],stdin=ip_file_path,stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit)
+#         return process
+#     elif (lang == "cpp"):
+#         args = ['g++', '-o', f'{FilePath}/code', CppFile] # compile the file and generate an output executable
+#         process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit)
+#         print("llllllllllllllllllllllllllllllllllll")
+#         # print(process.returncode)
+#         output, error = process.communicate() # get the output and error messages
+#         # print(output,error)
+#         if not error:
+#             executable = f'{FilePath}/./code'
+#             process = subprocess.Popen(executable, stdin=ip_file_path,stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit,shell=False)
+#             output, error = process.communicate()
+#             print("llllllllllllllllllllllllllllllllllll")
+#             # print(process.returncode)
+#             return process
+#         else:
+#             return process
     
 # test the function with a sample command
 
 
 def execute_cpp_code():
-    args = ['docker','exec','g++', '-o', f'{FilePath}/code', CppFile] # compile the file and generate an output executable
+    # args = ['docker','exec','g++', '-o', f'{FilePath}/code', CppFile] # compile the file and generate an output executable
 
-    process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit)
+    process = subprocess.Popen(f"docker exec {CONTAINER_NAME} sh -c 'timeout 1s g++ src/code.cpp'", stdout=subprocess.PIPE, stderr=subprocess.PIPE,shell=True)
     output, error = process.communicate()
     # error = process.stderr
+    print(process.returncode)
     print("executable file ",error)
 
-    if error:
+    if process.returncode==124:
+        CopyReturnCode(error,ErrorCodes["TLE"])
+        print("Time Limit Exceeded")
+    elif error:
         CopyReturnCode(error,ErrorCodes["CE"])
         print("Compile Error:")
         # print(error.decode('utf-8'))
     else:
         executable = f'{FilePath}/./code'
         try:
-            process = subprocess.Popen(executable, stdin=ip_file_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=set_memory_limit,shell=False)
-            # print(process.returncode)
+            process = subprocess.Popen(f"docker exec {CONTAINER_NAME} sh -c 'timeout 1s ./a.out < src/input.txt'", stdout=subprocess.PIPE, stderr=subprocess.PIPE,shell=True)
 
             out, err = process.communicate(timeout=1) # timeout after 5 seconds
             # print("try block err : ",err.decode().split())
@@ -205,21 +200,27 @@ def execute_cpp_code():
 
 def execute_c_code():
     #g++ src/main.c && /src/./a.out
-    args = ['gcc', '-o', f'{FilePath}/ccode', CFile] # compile the file and generate an output executable
+    #docker exec container2 sh -c 'python3 src/code.py < src/input.txt'
+    # args = ['docker','exec',f'{CONTAINER_NAME}','gcc', '-o', f'{FilePath}/ccode', CFile] # compile the file and generate an output executable
 
-    process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,preexec_fn=set_memory_limit)
-    output, error = process.communicate()
+    process = subprocess.Popen(f"docker exec {CONTAINER_NAME} sh -c 'timeout 1s gcc src/code.c'", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    output, error = process.communicate(timeout=1)
     # error = process.stderr
     print("executable file ",error)
 
-    if error:
+    print("return code ->",process.returncode)
+    if process.returncode==124:
+        CopyReturnCode(error,ErrorCodes["TLE"])
+        print("Time Limit Exceeded")
+    elif error:
         CopyReturnCode(error,ErrorCodes["CE"])
         print("Compile Error:")
         # print(error.decode('utf-8'))
     else:
-        executable = f'{FilePath}/./ccode'
+        # executable = f'{FilePath}/./ccode'
+        err=b''
         try:
-            process = subprocess.Popen(executable, stdin=ip_file_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=set_memory_limit,shell=False)
+            process = subprocess.Popen(f"docker exec {CONTAINER_NAME} sh -c 'timeout 1s ./a.out < src/input.txt'", stdin=ip_file_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE,shell=True)
             # print(process.returncode)
 
             out, err = process.communicate(timeout=1) # timeout after 5 seconds
@@ -249,8 +250,11 @@ def execute_c_code():
             # print(out.decode('utf-8'))
 
 
-
-
-
-
-
+# def cpp(time_limit,memory_limit):
+#     a=subprocess.run('g++ code.cpp -o cpp.out',shell=True,stderr=er,text=True)
+#     rc.write(str(a.returncode))
+#     if(a.returncode==0):
+#         a=subprocess.run('./cpp.out <input.txt>output.txt',shell=True,stderr=er,preexec_fn=set_limit_resource(False,time_limit,memory_limit),text=True)
+#         rc.write(str(a.returncode))
+#     rc.close()
+#     er.close()

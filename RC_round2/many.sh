@@ -1,9 +1,2 @@
 #!/bin/bash
-
-i=0
-
-while [ $i != 1 ]
-do
-docker run -d -it --name test_container$i -v $(pwd)/Code_Runner/container$i:/src --security-opt seccomp=$(pwd)/seccomp/default.json python bash
-((i++))
-done
+docker run -d -it --name container1 -v $(pwd)/Code_Runner:/src --security-opt seccomp=$(pwd)/seccomp/script.json python bash

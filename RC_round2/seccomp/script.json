@@ -64,6 +64,9 @@
 				"capget",
 				"capset",
 				"chdir",
+				"chmod",
+				"chown",
+				"connect",
 				"clock_adjtime",
 				"clock_adjtime64",
 				"clock_getres",
@@ -77,6 +80,14 @@
 				"dup",
 				"dup2",
 				"dup3",
+				"epoll_create",
+				"epoll_create1",
+				"epoll_ctl",
+				"epoll_ctl_old",
+				"epoll_pwait",
+				"epoll_pwait2",
+				"epoll_wait",
+				"epoll_wait_old",
 				"execve",
 				"execveat",
 				"exit",
@@ -130,6 +141,8 @@
 				"get_robust_list",
 				"getrusage",
 				"getsid",
+				"getsockname",
+				"getpeername",
 				"get_thread_area",
 				"gettid",
 				"getuid",
@@ -266,6 +279,7 @@
 				"setreuid32",
 				"setrlimit",
 				"set_robust_list",
+				"set_tid_address",
 				"setuid",
 				"setuid32",
 				"setxattr",
@@ -298,8 +312,10 @@
 				"timerfd_settime",
 				"timerfd_settime64",
 				"times",
+				"tgkill",
 				"ugetrlimit",
 				"umask",
+				"uname",
 				"utimensat",
 				"utimensat_time64",
 				"utimes",
@@ -431,6 +447,19 @@
 					"CAP_SYS_ADMIN"
 				]
 			}
+		},
+		{
+			"names": [
+				"socket"
+			],
+			"action": "SCMP_ACT_ALLOW",
+			"args": [
+				{
+					"index": 0,
+					"value": 40,
+					"op": "SCMP_CMP_NE"
+				}
+			]
 		}
 
 	]
