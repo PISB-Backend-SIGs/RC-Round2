@@ -9,14 +9,13 @@
 }
 .navbar{
     /* padding: 0 0 0.9rem; */
-    background-image: linear-gradient(315deg, #10223b 0%, #000000 270%);
+    background-color: #022527;
 
     
 }
 
 footer {
-    background-image: linear-gradient(315deg, #10223b 0%, #000000 270%);
-
+    background-color: #022527;;
     color: #ffffff;
   }
 .navbar-brand{
@@ -90,18 +89,22 @@ footer {
     padding:0.5rem 0.7rem; 
     border-radius: 0.5rem;
     border-style:none;
-    background-color: #032f42; 
+    background-color:  #03422d;
     font-size: 0.95rem;
     color:#FFFFFF; 
 }
 
+.thwala button:hover
+{
+    background-color:  #086b3f;
+}
 .question-table .card{
     text-align: center;
     margin: auto 70px;
     /* border: 1px solid black;  */
     width: 250px;
     color: #ffffff;
-    background-image: linear-gradient(207deg, #10223b 0%, #000000 270%);
+    background-image: linear-gradient(201deg, #05494d -23%, #12100e 130%);
 
   border-color: #ffffff;
   box-shadow: 3px 2px 2px lightblue;
@@ -170,7 +173,7 @@ footer {
     color: var(--bs-progress-bar-color);
     text-align: center;
     white-space: nowrap;
-    background-color: #032f42;
+    background-color: #03421c;
     transition: var(--bs-progress-bar-transition);
     border: 1.5px solid beige;
 }
@@ -200,11 +203,10 @@ footer {
 {
   min-width: 700px;
   min-height: 100vh;
-  background-image: linear-gradient(355deg, #10223b 0%, #000000 270%);
-
+  background-image: linear-gradient(201deg, #064346 -23%, #12100e 130%);
 }
 .body{
-    background-image: linear-gradient(355deg, #10223b 0%, #000000 270%);
+   background-image: linear-gradient(201deg, #064346 -23%, #12100e 130%);
 }
 
 .backgr{
@@ -238,7 +240,25 @@ footer {
     transform: scale(1.1);
     background-color: black;
 }
-.modal-content{
-    background-color: rgba(42, 81, 116, 0.932);
-color:white}
 
+
+.modal-content {
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    /* background-color: #022527; */
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+    max-height: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(201deg, #05494d -23%, #12100e 130%);
+    color: white;
+    border: 3px solid #08f4ac;
+    margin: auto 3%;
+}

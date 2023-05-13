@@ -31,5 +31,6 @@ urlpatterns = [
     path('register/', views.userRegister, name='register'),
     path('settingwale/', views.settingwale, name='settingwale'),
     path('test/', views.test, name='test'),
+    path('getRCipOP',views.getRCipOP,name='getRCipOP')
 
 ]

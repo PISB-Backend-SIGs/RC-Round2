@@ -1,0 +1,34 @@
+<script>
+    console.log("hello world")
+
+
+
+
+$("#getOutput").on("click", function() {
+    console.log("run clicked");
+    let userCode = document.getElementById("rcTestip").value;
+    let id = "{{ question.q_id }}";
+    let url = '/getRCipOP' ; // Replace 'getRCipOP' with the correct view name
+    
+    $.ajax({
+        url: url,
+        method: "POST",
+        data: {
+            "user_code": userCode,
+            "id":id
+        },
+        success: function(response) {
+            //console.log(response);
+            let userOP = document.getElementById("rcTestop");
+            userOP.value = response["testop"];
+           
+            // Handle the response data here
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+            // Handle the error here
+        }
+    });
+});
+
+</script>

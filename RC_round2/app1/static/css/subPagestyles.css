@@ -216,7 +216,7 @@ tbody,tr:hover{
     outline: 0;
     max-height: 100%;
     overflow: hidden;
-    background: #082934;
+    background-image: linear-gradient(201deg, #05494d -23%, #12100e 130%);
     color: white;
     border: 3px solid #08f4ac;
     margin: auto 3%;

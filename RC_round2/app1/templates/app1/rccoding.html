@@ -21,7 +21,8 @@
 <body class="mainBody">
   <nav class="navbar navbar-expand-lg navbarr">
     <div class="container-fluid">
-      <a class="navbar-brand navvi" href="#" style="padding: 0px"><img src="{% static 'images/revb.png' %}" alt="Clash Logo" height="60px" width="70px"/></a>
+      <a class="navbar-brand navvi" href="#" style="padding: 0px"><img src="{% static 'images/revb.png' %}"
+          alt="Clash Logo" height="60px" width="70px" /></a>
       <a class="navbar-brand navvi timer" id="timerDisplay" style="margin-left: 20px;color:white">
         TIMer
       </a>
@@ -64,47 +65,46 @@
         </ul>
       </div>
       <a class="navbar-brand navvi pisblogo" href="https://pictieee.in/" style="padding: 0px; margin-left: 20px"><img
-        src="{% static 'images/pisblogo.png' %}" alt="Clash Logo" height="30px" /></a>
-      </div>
-    </nav>
-    
-    <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center">
-            Are you sure you want to logout ?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
-              Cancel
-            </button>
-            <button type="button" class="btn btn-danger">
-              <a href="{% url 'logout' %}">Logout</a>
-            </button>
-          </div>
+          src="{% static 'images/pisblogo.png' %}" alt="Clash Logo" height="30px" /></a>
+    </div>
+  </nav>
+
+  <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          Are you sure you want to logout ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
+            Cancel
+          </button>
+          <button type="button" class="btn btn-danger">
+            <a href="{% url 'logout' %}">Logout</a>
+          </button>
         </div>
       </div>
     </div>
-    
+  </div>
 
 
-     
+
+
   <!-- Hearder strip code starts -->
 
   <section class="head-strip">
     <!-- Question numbers -->
     <div class="questions ">
-      <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn1">1</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn2">2</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn3">3</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark  qb " id="qbtn4">4</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn5">5</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark   qb" id="qbtn6">6</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn1" onclick="location.href='/question/1'">1</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn2" onclick="location.href='/question/2'">2</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn3" onclick="location.href='/question/3'">3</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn4" onclick="location.href='/question/4'">4</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn5" onclick="location.href='/question/5'">5</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn6" onclick="location.href='/question/6'">6</button></div>
 
     </div>
     <!-- Score  -->
@@ -124,33 +124,35 @@
     <div class="questionpart">
       <div class="question-sec">
         <div class="que-name">
-          <h3> Question Heading </h3>
-          {{ question.q_title }}
+          <h3>{{ question.q_title }}</h3>
         </div>
         <div class="quepart que-description" style="height: auto;">
           <h3>Question Description</h3>
           <div class="queimg text-center">
-            <img src="http://images5.fanpop.com/image/photos/30600000/random-random-30660647-1280-1024.png" alt="loding">
+            <img src="http://images5.fanpop.com/image/photos/30600000/random-random-30660647-1280-1024.png"
+              alt="loding">
           </div>
-          {{ question.q_descrp }}
+          <h4>{{ question.q_descrp }}</h4>
         </div>
         <div class="quepart que-constrains">
           <h3>Question Constraints</h3>
-          {{ question.q_const }}
+          <h4>{{ question.q_const }}</h4>
         </div>
       </div>
       <div class="rc-input-output">
+
         <div class="inputrc">
           <h3>INPUT</h3>
-          <textarea></textarea>
+          <textarea id="rcTestip"></textarea>
         </div>
         <div class="get-output">
-          <button>GET OUTPUT</button>
+          <button id="getOutput" value="GET OUTPUT" type="button">GET OUTPUT</button>
         </div>
         <div class="outputrc">
           <h3>OUTPUT</h3>
-          <textarea class="inputs-output"></textarea>
+          <textarea class="inputs-output" id="rcTestop"></textarea>
         </div>
+
       </div>
     </div>
 
@@ -217,29 +219,32 @@
       </div>
 
       <!-- The Submit Button Code Starts here  -->
-      <div class="submit-strip">
-        <div class="console">
-          <button type="button" class="console-btn d-flex flex-wrap " data-toggle="collapse" id="console-btn"
-            data-target="#test-cases">
-            Console
-            <ion-icon name="chevron-up-outline" class="up mx-2 "></ion-icon>
-            <ion-icon name="chevron-down-outline" class="down hidden"></ion-icon>
-          </button>
+      <form action="POST">
+        {% csrf_token %}
+        <div class="submit-strip">
+          <div class="console">
+            <button type="button" class="console-btn d-flex flex-wrap " data-toggle="collapse" id="console-btn"
+              data-target="#test-cases">
+              Console
+              <ion-icon name="chevron-up-outline" class="up mx-2 "></ion-icon>
+              <ion-icon name="chevron-down-outline" class="down hidden"></ion-icon>
+            </button>
+          </div>
+          <div class="submit-btn">
+            <button type="button" class="run-btn   btn-outline-dark" id="rcRunBtn">Run</button>
+          </div>
+          <div class="sub-btn">
+            <button type="button" class="run-btn  btn-outline-dark" id="submit-btn">Submit</button>
+          </div>
         </div>
-        <div class="submit-btn">
-          <button type="button" class="run-btn   btn-outline-dark">Run</button>
-        </div>
-        <div class="sub-btn">
-          <button type="button" class="run-btn  btn-outline-dark" id="submit-btn">Submit</button>
-        </div>
-      </div>
+      </form>
 
     </div>
 
   </section>
   <footer class="text-center fixed-bottom footerr">
     <div class=" container-fluid">
-        <div class="footer-text pt-3 pb-3">PISB <span>&copy</span></div>
+      <div class="footer-text pt-3 pb-3">PISB <span>&copy</span></div>
     </div>
   </footer>
 
@@ -250,6 +255,17 @@
   <script src="{% static 'js/rc.js' %}"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!--ajax link-->
+
+
 
   <script>
     x = setInterval(function () {
@@ -273,7 +289,7 @@
       hours = hours < 10 ? '0' + hours : hours;
       minutes = minutes < 10 ? '0' + minutes : minutes;
       seconds = seconds < 10 ? '0' + seconds : seconds;
-      console.log(hours + ":" + minutes + ":" + seconds)
+      // console.log(hours + ":" + minutes + ":" + seconds)
       document.getElementById('timerDisplay').innerHTML = hours + ":" + minutes + ":" + seconds;
       // var sub_btn = document.getElementById("submit_btn");
       // sub_btn.name = "nsubmit";
@@ -287,11 +303,22 @@
     }, 0)
 
 
-    var que_no='{{question.q_id}}';
-  var element=document.getElementById( "qbtn"+que_no);
-  element.classList.add("glow");
+    var que_no = '{{question.q_id}}';
+    var element = document.getElementById("qbtn" + que_no);
+    element.classList.add("glow");
   </script>
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  {% include 'ajax/rcCoadingPage.html' %}
 </body>
 
 </html>

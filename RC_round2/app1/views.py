@@ -13,7 +13,7 @@ from .models import *
 from .decorators import (check_time, only_superuser)
 from .runnerUtils import runCode
 import json
-
+from .RCGetOp import *
 @login_required(login_url='login')
 def home(request):
     context={
@@ -217,6 +217,29 @@ def question_sub(request,id):
                 "submissionFlag":submissionFlag,
             }
         # return redirect(f"/question/{id}")
+        return JsonResponse(dict)
+        
+from django.views.decorators.csrf import csrf_exempt
+@login_required(login_url='login')
+@csrf_exempt
+def getRCipOP(request):
+    print("**************************")
+    if (request.method=="POST"):
+            print("run clciked")
+            userTestInput = request.POST.get("user_code")
+            qid = request.POST.get("id")
+            userOp = getOp(qid,userTestInput)
+            # print("from utils to show aop",status)
+            print("from utils to show op",userOp)
+            dict = {
+                "status":1,
+                "testop":userOp,
+            }
+            return JsonResponse(dict)
+    else:
+        dict={
+            "status":0
+        }
         return JsonResponse(dict)
 
 # @login_required(login_url='login')

@@ -54,16 +54,16 @@
               <a
                 class="nav-link active navvi"
                 aria-current="page"
-                href="./questionHubPage.html"
+                href="{% url 'leaderboard' %}"
                 style="margin-left: 10px; margin-right: 10px"
-                >Question Hub</a
+                >Leaderboard</a
               >
             </li>
             <li class="nav-item">
               <a
                 class="nav-link navvi"
                 aria-current="page"
-                href="./submissions.html"
+                href="{% url 'submission' %}"
                 style="margin-left: 10px; margin-right: 10px"
                 >Submissions</a
               >
@@ -75,6 +75,7 @@
                 style="margin-left: 10px; margin-right: 10px; cursor: pointer"
                 data-bs-toggle="modal"
                 data-bs-target="#LogoutModal"
+                href="{% url 'logout' %}"
                 >Logout</a
               >
 
