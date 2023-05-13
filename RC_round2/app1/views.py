@@ -54,7 +54,7 @@ def userLogin(request):
                     player.p_is_loged_in = True
                     player.save()
                 else:
-                    messages.error(request, "You are already login")
+                    messages.error(request, "The participant has already logged in!!")
                     return redirect("login")
             except:
                 player=Player(user=user,p_is_loged_in=True)

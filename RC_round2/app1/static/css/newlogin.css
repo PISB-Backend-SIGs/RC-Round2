@@ -12,7 +12,64 @@ html {
     background: #022527;
     color: #ffffff;
   }
-  
+
+  .alert{
+    width: fit-content;
+    right: 0;
+    position: fixed;
+    background-color: #064346;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 17px 24px;
+    color: #08f4ac;
+    border: 2px solid #064346;
+    box-shadow: 1px 1px 1px #08f4ac,-1px -1px 1px #08f4ac,1px 1px 1px #08f4ac;
+  }
+  .alert p{
+    margin: auto 5px;
+  }
+  /* .modal{
+    display: flex;
+    background-color: transparent;
+    border: 2px solid #08f4ac;
+    border-radius: 7px;
+    opacity: 70%;
+   }
+  .modal-body{
+   background-color: #05494d;
+   border: 2px solid #08f4ac;
+   border-top:0;
+   color: #fffff0;
+   font-size:1.2rem;
+   border-top:0;
+   border-bottom:0; */
+   /* opacity: 170%;
+  }
+   .modal-header{
+    background-color: #05494d;
+    border: 2px solid #08f4ac;
+    border-bottom:0;
+    display: flex;
+    flex-direction: row;
+    opacity: 170%;
+  }
+  .modal-footer{
+    background-color: #05494d;
+    border: 2px solid #08f4ac;
+    border-top:0;
+    display: flex;
+  } */
+  .close{
+    border: 2px solid #fffff0;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    padding: auto;
+    background-color:transparent;
+    color: wheat;
+  }
   
   .login-box {
     position: absolute;

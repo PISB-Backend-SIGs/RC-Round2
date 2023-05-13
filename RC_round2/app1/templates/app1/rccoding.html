@@ -21,12 +21,14 @@
 <body class="mainBody">
   <nav class="navbar navbar-expand-lg navbarr">
     <div class="container-fluid">
-      <a class="navbar-brand navvi" href="#" style="padding: 0px"><img src="{% static 'images/revb.png' %}"
-          alt="Clash Logo" height="60px" width="70px" /></a>
-      <a class="navbar-brand navvi timer" id="timerDisplay" style="margin-left: 20px;color:white">
-        TIMer
-      </a>
-
+      <a class="navbar-brand navvi" href="https://credenz.in" style="padding: 0px"><img
+          src="{% static 'images/revb.png' %}" alt="Clash Logo" height="60px" width="70px" /></a>
+      <!-- <a class="navbar-brand navvi timer" id="timerDisplay" style="margin-left: 20px;color:white">
+      </a> -->
+        <a class="navbar-brand navvi timer" id="timerDisplay" style="margin-left: 20px;color:white">
+        
+        </a>
+      <!-- <p id="timerDisplay"></p> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars" style="color: white"></i>
@@ -42,6 +44,7 @@
               >Question Hub</a
             >
           </li> -->
+          
           <li class="nav-item">
             <a class="nav-link navvi" aria-current="page" href="{% url 'submission' %}"
               style="margin-left: 10px; margin-right: 10px ; color: lightblue;">Submissions</a>
@@ -53,7 +56,7 @@
           </li>
           <li class="nav-item navvi">
             <a class="nav-link navvi" style="margin-left: 10px; margin-right: 10px; color: lightblue; cursor: pointer"
-              data-bs-toggle="modal" data-bs-target="#LogoutModal">Logout</a>
+              data-bs-toggle="modal" data-bs-target="#LogoutModal" href="{% url 'logout' %}">Logout</a>
 
 
             <!-- <button type="button" class="btn btn-primary">
@@ -99,18 +102,26 @@
   <section class="head-strip">
     <!-- Question numbers -->
     <div class="questions ">
-      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn1" onclick="location.href='/question/1'">1</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn2" onclick="location.href='/question/2'">2</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn3" onclick="location.href='/question/3'">3</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn4" onclick="location.href='/question/4'">4</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn5" onclick="location.href='/question/5'">5</button></div>
-      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn6" onclick="location.href='/question/6'">6</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn1"
+          onclick="location.href='/question/1'">1</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn2"
+          onclick="location.href='/question/2'">2</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn3"
+          onclick="location.href='/question/3'">3</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn4"
+          onclick="location.href='/question/4'">4</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn5"
+          onclick="location.href='/question/5'">5</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn6"
+          onclick="location.href='/question/6'">6</button></div>
+      <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn7"
+          onclick="location.href='/question/6'">7</button></div>
 
     </div>
     <!-- Score  -->
     <div class="score-time">
       <div class="btn-group mx-auto" role="group" aria-label="Basic outlined example">
-        <div type="button" class="btn btn-outline-dark " id="score">+7</div>
+        <div type="text" class="btn btn-outline-dark " id="score">Max. score: +7</div>
       </div>
     </div>
   </section>
@@ -150,7 +161,7 @@
         </div>
         <div class="outputrc">
           <h3>OUTPUT</h3>
-          <textarea class="inputs-output" id="rcTestop"></textarea>
+          <div class="inputs-output" id="rcTestop"></div>
         </div>
 
       </div>
@@ -189,13 +200,16 @@
 
           <div class="consoleBlocks">
 
-            <div class="block1">
-              <textarea>
-             // Custom Input 
+            <div class="block1 text-center">
+              <h5> Custom Input </h5>
+              <textarea class="block-input">
            </textarea>
             </div>
-            <div class="block2">
+            <div class="block2 text-center">
               <h5>This is Output </h5>
+              <div class="block-output">
+
+              </div>
             </div>
 
           </div>
@@ -209,6 +223,22 @@
               <div class="test d-flex mx-3"> Test Case 2 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
               <div class="test d-flex mx-3"> Test Case 3 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+                  size="large"></ion-icon></div>
+              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
               <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
@@ -227,7 +257,7 @@
               data-target="#test-cases">
               Console
               <ion-icon name="chevron-up-outline" class="up mx-2 "></ion-icon>
-              <ion-icon name="chevron-down-outline" class="down hidden"></ion-icon>
+              <ion-icon name="chevron-down-outline" class="down hidden "></ion-icon>
             </button>
           </div>
           <div class="submit-btn">
@@ -266,7 +296,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!--ajax link-->
 
 
+  <!-- Timer JS here -->
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script>
     x = setInterval(function () {
 
@@ -289,7 +330,7 @@
       hours = hours < 10 ? '0' + hours : hours;
       minutes = minutes < 10 ? '0' + minutes : minutes;
       seconds = seconds < 10 ? '0' + seconds : seconds;
-      // console.log(hours + ":" + minutes + ":" + seconds)
+      console.log(hours + ":" + minutes + ":" + seconds)
       document.getElementById('timerDisplay').innerHTML = hours + ":" + minutes + ":" + seconds;
       // var sub_btn = document.getElementById("submit_btn");
       // sub_btn.name = "nsubmit";
@@ -300,24 +341,37 @@
         clearInterval(x);
       }
 
-    }, 0)
+    }, 1000)
 
 
-    var que_no = '{{question.q_id}}';
-    var element = document.getElementById("qbtn" + que_no);
-    element.classList.add("glow");
+
+    var consoleBtnn = document.getElementById("console-btn");
+var consoleBtnDown = consoleBtnn.querySelector(".down");
+var consoleBtnUp = consoleBtnn.querySelector(".up");
+var editor=document.querySelector("#editor1")
+
+consoleBtnn.addEventListener("click", function() {
+  if (consoleBtnDown.classList.contains("hidden")) {
+    consoleBtnDown.classList.remove("hidden");
+    consoleBtnUp.classList.add("hidden");
+  } else {
+    consoleBtnDown.classList.add("hidden");
+    consoleBtnUp.classList.remove("hidden");
+  }
+
+  //  if(editor.classList.contains("hidden")){
+  //   editor.classList.remove("hidden");
+  //  }
+  //  else{
+  //      editor.clasList.add("hidden");
+  //  }
+
+});
+
+
+
+
   </script>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   {% include 'ajax/rcCoadingPage.html' %}
 </body>
 

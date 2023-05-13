@@ -78,19 +78,6 @@ consoleBtn.addEventListener('click', () => {
 
 //console buttons onclicke events 
 
-var consoleBtnn = document.getElementById("console-btn");
-var consoleBtnDown = consoleBtnn.querySelector(".down");
-var consoleBtnUp = consoleBtnn.querySelector(".up");
-
-consoleBtnn.addEventListener("click", function() {
-  if (consoleBtnDown.classList.contains("hidden")) {
-    consoleBtnDown.classList.remove("hidden");
-    consoleBtnUp.classList.add("hidden");
-  } else {
-    consoleBtnDown.classList.add("hidden");
-    consoleBtnUp.classList.remove("hidden");
-  }
-});
 
 
 

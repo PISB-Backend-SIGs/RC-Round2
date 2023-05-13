@@ -9,7 +9,7 @@ $("#getOutput").on("click", function() {
     let userCode = document.getElementById("rcTestip").value;
     let id = "{{ question.q_id }}";
     let url = '/getRCipOP' ; // Replace 'getRCipOP' with the correct view name
-    
+    console.log(userCode)
     $.ajax({
         url: url,
         method: "POST",
@@ -18,9 +18,9 @@ $("#getOutput").on("click", function() {
             "id":id
         },
         success: function(response) {
-            //console.log(response);
+            console.log(response);
             let userOP = document.getElementById("rcTestop");
-            userOP.value = response["testop"];
+            userOP.innerText = response["testop"];
            
             // Handle the response data here
         },

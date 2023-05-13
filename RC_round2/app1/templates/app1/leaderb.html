@@ -107,7 +107,7 @@
                   <th>Q3</th>
                   <th>Q4</th>
                   <th>Score</th>
-                  <th>time</th>
+                  <!-- <th>Submission Time</th> -->
                 </tr>
                 </thead>
                 <tbody id="ex1">
@@ -115,14 +115,14 @@
                 {% for team in teams %}
                   <tr>
                     <td>{{team.place}}</td>
-                    <td>{{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %}</td>
+                    <td>{{team.user}} {% if "user2" in team %}and {{team.user2}}{% endif %}</td>
                     <td>{{team.score}} </td>
                     <td>{{team.score}} </td>
                     <td>{{team.score}} </td>
                     <td>{{team.score}} </td>
                     <!-- <td>{{team.attempted_question}} </td> -->
                     <td>{{team.score}}</td>
-                    <td>{{team.Time|time:"h:i"}}</td>
+                    <!-- <td>{{team.Time|time:"h:i"}}</td> -->
                   </tr>
                 {% endfor %}
               </table>

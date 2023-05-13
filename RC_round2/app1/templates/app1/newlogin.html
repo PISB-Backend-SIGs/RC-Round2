@@ -14,9 +14,7 @@
 </head>
 
 <body>
-  {% for message in messages %}
-  <div class="alert alert-danger"><h2>{{message}}</h2></div>
-  {% endfor %}
+  
     <!-- Navbar goes here -->
     <nav class="navbar navbar-expand-lg navbarr">
         <div class="container-fluid">
@@ -71,6 +69,37 @@
           /></a>
         </div>
       </nav>
+
+      {% for message in messages %}
+      <div class="alert alert-danger"><icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="yellow" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></icon>
+      <p class="alertmsg">{{message}}</p></div>
+      {% endfor %}
+          <!-- <button class="closemodal">Close</button> -->
+      <!-- <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" >
+              <icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="yellow" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></icon>
+             
+              <h5 class="modal-title" >Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            
+              <p>{{message}}You have already logged in!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
     <div class="login-box">
         <h2>Login</h2>
         <form method="post">
