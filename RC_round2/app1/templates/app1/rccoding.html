@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 {% load static %}
 <html lang="en">
 
@@ -102,6 +102,11 @@
   <section class="head-strip">
     <!-- Question numbers -->
     <div class="questions ">
+      <div class="heading-div">
+            <h4 class="text-center que-heading">
+              Questions: 
+            </h4>
+      </div>
       <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn1"
           onclick="location.href='/question/1'">1</button></div>
       <div class="queno"><button type="button " class=" btn btn-dark qb" id="qbtn2"
@@ -161,7 +166,7 @@
         </div>
         <div class="outputrc">
           <h3>OUTPUT</h3>
-          <div class="inputs-output" id="rcTestop"></div>
+          <div class="inputs-output p-2" id="rcTestop"></div>
         </div>
 
       </div>
@@ -202,13 +207,12 @@
 
             <div class="block1 text-center">
               <h5> Custom Input </h5>
-              <textarea class="block-input">
-           </textarea>
+              <textarea class="block-input"></textarea>
             </div>
             <div class="block2 text-center">
               <h5>This is Output </h5>
-              <div class="block-output">
-
+              <div class="block-output p-1">
+                    
               </div>
             </div>
 
@@ -218,29 +222,33 @@
               Answer is Correct /Failed.
             </div>
             <div class="alltext d-flex flex-wrap ">
-              <div class="test d-flex mx-3"> Test Case 1 <ion-icon name="close-circle-outline" class="mx-3 my-1"
+
+              <!-- //for wrong test case -->
+              <div class="test d-flex mx-3 " style=" align-items: center;justify-content: center;"> Test Case 1 <ion-icon name="close-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon> </div>
-              <div class="test d-flex mx-3"> Test Case 2 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+
+              <!-- //for wrong correct-->
+              <div class="test d-flex  mx-3"style=" align-items: center;justify-content: center;"> Test Case 2 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 3 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 3 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
-              <div class="test d-flex mx-3"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
+              <div class="test d-flex mx-3"style=" align-items: center;justify-content: center;"> Test Case 4 <ion-icon name="checkmark-circle-outline" class="mx-3 my-1"
                   size="large"></ion-icon></div>
             </div>
           </div>
@@ -257,7 +265,7 @@
               data-target="#test-cases">
               Console
               <ion-icon name="chevron-up-outline" class="up mx-2 "></ion-icon>
-              <ion-icon name="chevron-down-outline" class="down hidden "></ion-icon>
+              <ion-icon name="chevron-down-outline" class="down hidden"></ion-icon>
             </button>
           </div>
           <div class="submit-btn">
@@ -340,36 +348,64 @@
         location.href = "{% url 'leaderboard' %}"
         clearInterval(x);
       }
+      console.log("interval cleared")
 
     }, 1000)
 
+  </script>
+  <script>
+    
+const submitBtn = document.querySelector('#submit-btn');
+const consoleBtn=document.querySelector('#console-btn');
+const statusDiv = document.querySelector('.Status');
+const consoleDiv = document.querySelector('.consoleBlocks');
+
+submitBtn.addEventListener('click', () => {
+  statusDiv.scrollIntoView({ behavior: 'smooth' });
+});
+consoleBtn.addEventListener('click', () => {
+  consoleDiv.scrollIntoView({ behavior: 'smooth' });
+});
+
+// console.log("sham sham ")
 
 
-    var consoleBtnn = document.getElementById("console-btn");
+
+//console buttons onclicke events 
+
+
+var consoleBtnn = document.getElementById("console-btn");
+    
 var consoleBtnDown = consoleBtnn.querySelector(".down");
 var consoleBtnUp = consoleBtnn.querySelector(".up");
-var editor=document.querySelector("#editor1")
+// var editor=document.querySelector("#editor1")
 
 consoleBtnn.addEventListener("click", function() {
   if (consoleBtnDown.classList.contains("hidden")) {
     consoleBtnDown.classList.remove("hidden");
+    // alert("up btn hidden")
     consoleBtnUp.classList.add("hidden");
+    console.log("down btn shown")
   } else {
     consoleBtnDown.classList.add("hidden");
+    // console.log("down tn hidden")
     consoleBtnUp.classList.remove("hidden");
+    // console.log("up btn shown")
   }
 
-  //  if(editor.classList.contains("hidden")){
-  //   editor.classList.remove("hidden");
-  //  }
-  //  else{
-  //      editor.clasList.add("hidden");
-  //  }
+   if(editor1.classList.contains("hidden")){
+    editor1.classList.remove("hidden");
+   }
+   else{
+       editor1.classList.add("hidden");
+   }
 
 });
 
 
-
+var que_no='{{question.q_id}}';
+  var element=document.getElementById( "qbtn"+que_no);
+  element.classList.add("glow");
 
   </script>
   {% include 'ajax/rcCoadingPage.html' %}

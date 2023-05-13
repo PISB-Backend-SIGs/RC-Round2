@@ -155,6 +155,13 @@
     width: 100%;
 }
 
+.heading-div{
+    margin-left:15px;
+}
+.que-heading{
+    color:rgb(142, 235, 214);
+}
+
 
 
 /* End Buttons  */
@@ -191,7 +198,7 @@
 }
 /* BUTTON HOVERING EFFECT */
 #score:hover,#time:hover{
-    background-color: rgb(3, 111, 212);
+    background-color: rgb(3, 125, 90);
 }
 .console-btn,.run-btn {
     border: none;
@@ -222,9 +229,9 @@
     content: '';
     position: absolute;
     z-index: -1;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
     color: black;
 }
 .console-btn:after{
@@ -232,7 +239,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: rgb(47, 255, 50);
+    background:  rgb(70, 135, 70);
     color: black;
 }
 .run-btn:after{
@@ -240,7 +247,8 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: rgb(47, 255, 50);
+    background:  rgb(70, 135, 70);
+    color: black;
     
 }
 .btn-info::after{
@@ -343,7 +351,7 @@
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgba(6, 100, 188, 0.345);
+    background: rgba(6, 188, 42, 0.345);
     border-radius: 10px;
   }
   
@@ -380,14 +388,20 @@
    
   .block1 textarea{
     color: rgb(255, 255, 255);
+    text-align: left; 
     background-color:transparent ;
-    height: 50%;
+    height: 80%;
     width: 95%;
     margin:auto;
     resize: none;
     
   }
-
+    .block-output{
+        color: rgb(255, 255, 255);
+        text-align: left; 
+        margin:auto;
+        height: 80%;
+    }
   .block1 {
     height: 100%;
     border: 1px solid white;
@@ -498,7 +512,7 @@
     background-color: none; 
     border-width: 3px;
     border-color: rgba(122, 206, 86, 0.911)!important;
-    box-shadow: 0 0 10px rgb(68, 127, 107)!important;  
+    box-shadow: 0 0 10px rgb(6, 235, 21);
     color: white;
     height: 35px;
     width:  10vw;

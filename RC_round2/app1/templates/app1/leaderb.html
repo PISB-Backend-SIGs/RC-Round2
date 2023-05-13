@@ -62,36 +62,36 @@
                     </button> -->
     
                     <!-- Modal -->
-                    <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel"
-                      aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body text-center">
-                            Are you sure you want to logout ?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
-                              Cancel
-                            </button>
-                            <button type="button" class="btn btn-danger">
-                              <a href="{% url 'logout' %}">Logout</a>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </li>
                 </ul>
               </div>
               <a class="navbar-brand navvi pisblogo" href="https://pictieee.in/" style="padding: 0px; margin-left: 20px"><img
-                  src="{% static 'images/pisblogo.png' %}" alt="Clash Logo" height="30px" /></a>
+                src="{% static 'images/pisblogo.png' %}" alt="Clash Logo" height="30px" /></a>
+              </div>
+            </nav>
+            
+            <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    Are you sure you want to logout ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
+                      Cancel
+                    </button>
+                    <button type="button" class="btn btn-danger ">
+                      <a  style="text-decoration: none;color:white " href="{% url 'logout' %}">Logout</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-      </nav>
-    
         <!-- Dataset -->
           <!-- Dataset -->
           <div class="heading">
@@ -100,7 +100,7 @@
               <table id="myTable" class="display" >
                 <thead>
                 <tr>
-                  <th>Rank</th>
+                  <th >Rank</th>
                   <th>Username</th>
                   <th>Q1</th>
                   <th>Q2</th>

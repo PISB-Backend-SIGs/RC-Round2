@@ -15,6 +15,7 @@ html {
 
   .alert{
     width: fit-content;
+    transition-duration: 0.2s;
     right: 0;
     position: fixed;
     background-color: #064346;

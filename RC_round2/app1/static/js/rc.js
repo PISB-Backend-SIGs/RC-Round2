@@ -40,43 +40,29 @@ langSelect.addEventListener('change', function() {
 
 
 
-// code for choosing only the suppoirted files only c cpp and python 
-const fileInput = document.getElementById("customFile");
+// // code for choosing only the suppoirted files only c cpp and python 
+// const fileInput = document.getElementById("customFile");
 
-fileInput.addEventListener("change", function() {
-  const file = fileInput.files[0];
-  const fileName = file.name;
-  const fileExtension = fileName.split(".").pop();
-  console.log(fileExtension)
+// fileInput.addEventListener("change", function() {
+//   const file = fileInput.files[0];
+//   const fileName = file.name;
+//   const fileExtension = fileName.split(".").pop();
+//   console.log(fileExtension)
 
-  if (fileExtension !== "cpp" && fileExtension !== "c" && fileExtension !== "py") {
-    fileInput.value = "";
-    alert("Unsupported file format. Please select a C++, C, or Python file.");
-    return;
-  }
-});
+//   if (fileExtension !== "cpp" && fileExtension !== "c" && fileExtension !== "py") {
+//     fileInput.value = "";
+//     alert("Unsupported file format. Please select a C++, C, or Python file.");
+//     return;
+//   }
+// });
 
 
 
 
 //code for scrolling on to the status div 
 
+// console.log("ram ram")
 
-const submitBtn = document.querySelector('#submit-btn');
-const consoleBtn=document.querySelector('#console-btn');
-const statusDiv = document.querySelector('.Status');
-const consoleDiv = document.querySelector('.consoleBlocks');
-
-submitBtn.addEventListener('click', () => {
-  statusDiv.scrollIntoView({ behavior: 'smooth' });
-});
-consoleBtn.addEventListener('click', () => {
-  consoleDiv.scrollIntoView({ behavior: 'smooth' });
-});
-
-
-
-//console buttons onclicke events 
 
 
 
