@@ -99,7 +99,13 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="div1">
-          
+          <p>
+            {% for submission in submissions %}
+            <div class="submissions_details" id="{{submission.id}}" style="display: none;">
+              {{ submission.s_code }}
+            </div>
+            {% endfor %}
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -123,6 +129,19 @@
         window.getSelection().addRange(range);
         document.execCommand("copy");
         alert("Text has been copied, now paste in the text-area")
+      }
+    }
+
+    function show_data(params) {
+      var submissions = document.getElementsByClassName("submissions_details")
+      console.log(submissions);
+      for (let i = 0; i < submissions.length; i++) {
+          submissions[i].style.display = "none";
+      }
+      for (let i = 0; i < submissions.length; i++) {
+        if(submissions[i].id == params){
+          submissions[i].style.display = "block";
+        }
       }
     }
   </script>
@@ -161,11 +180,22 @@
                       <tr>
                           <td>{{submission.q_id }}</td>
                           <td>{{submission.s_language}}</td>
-                          <td>{{submission.s_time|time:"h:r"}}</td>
+                          <td>{{submission.teamTime|time:"h:r"}}</td>
                           <td>
                               <p class="submitted1">{{submission.q_status}}</p>
                           </td>
-                          <td><button class="btn3" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button></td>
+                          <!-- <form action="" method="post">
+                            {% csrf_token %}
+                          <td><button type="submit" class="btn3" data-bs-toggle="modal" data-bs-target="#exampleModal" name="view">View</button></td>
+                        </form> -->
+
+                        <!-- <form action="{% url 'submission_detail' %}" method="POST"> -->
+                          <form action="" method="POST"></form>
+                          {% csrf_token %}
+                          <input type="checkbox" name="s_time" id="s_time" value="{{ submission.s_time }}">
+                          <td><button type="submit" class="btn3" data-bs-toggle="modal" data-bs-target="#exampleModal" value="{{ submission.id }} id="see_sub_btn" onclick="show_data('{{ submission.id }}')" name="view">View</button></td>
+                      </form>
+
                       </tr>
                     {% endfor %}
                   </tbody>
@@ -180,6 +210,9 @@
       </div>
     </footer>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!--ajax link-->
+  {% include "ajax/rcCoadingPage.html" %}
+
 </body>
 
 </html>

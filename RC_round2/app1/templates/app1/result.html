@@ -138,11 +138,10 @@
                   <div class="col fs-3 mt-1 down_bor2" id="headtag">Your Result</div>
                 </div>
   
-  
                 <div class="row fs-4" id="onetri">
                   <div class="col-md-12 font_wt">
                     <h3 id="tri">Rank</h3>
-                    {{teamResult.t_rank}}</div>
+                    {{currteam_rank}}</div>
                 </div>
   
                 <!-- <div class="row fs-4 down_bor gx-1">
@@ -151,15 +150,15 @@
                 <div class="row fs-4" id="onetri">
                   <div class="col-md-12 font_wt">
                     <h3 id="tri">Score</h3>
-                    {{teamResult.team_score}}</div>
+                    {{currteam.team_score}}</div>
                 </div>
                 
                 <div class="row fs-4" id="onetri">
                   <div class="col-md-12 font_wt">
                     <h3 id="tri">Question <br>Attempts</h3>
-                    {{teamResult.team_attempted}}</div>
+                    {{currteam.team_attempted}}</div>
                 </div>
-             </div>
+            </div>
   
                 <!-- <div class="row fs-4 down_bor gx-1">
                 </div> -->
@@ -177,9 +176,6 @@
     </div>
   
     <div class="col-md-6 mid-align">
-      
-            
-      {% for team in teamResult %}
       <div class="row justify-content-around bottom">
               <!-- <div class="col-11"> -->
                 <!-- <div class="container fs-5"> -->
@@ -187,83 +183,41 @@
                   </div> -->
                   <div class="row justify-content-center">
                     <div class="row justify-content-evenly align-items-center mt-3 mb-4" >
-                            {% comment %} 
-                            {% for team in teams %}
-                            {{ team.place }}
-                          {% endfor %} {% endcomment %}
-                          {% comment %} >{% for team in teams %}
-                          <tr>
-                              <td>{{team.place}}</td>
-                              <td>{{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %}</td>
-                              <td>{{team.score}} </td>
-                              <td>{{team.score}} </td>
-                              <td>{{team.score}} </td>
-                              <td>{{team.score}} </td>
-                              <!-- <td>{{team.attempted_question}} </td> -->
-                              <td>{{team.score}}</td>
-                              <td>{{team.Time|time:"h:i"}}</td>
-                          </tr>
-                        {% endfor %} {% endcomment %}
-                        <!-- <div class="col-md-4">
-                          <div id="the-ribbon" class="award-ribbonone">
-                            <span class="award-rib
-                            bonone-text"
-                              >1st<br /><br />
-                              {{team.user}}<br />
-                              <br /><td>{{team.score}} </td></span>
+                      <div class="col-md-4">
+                        <div id="the-ribbon" class="award-ribbonone">
+                          <span class="award-ribbonone-text">1st<br/><br/>{{first_name}}<br/><br />{{first.team_score}} </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div id="the-ribbon" class="award-ribbontwo">
+                          <span class="award-ribbontwo-text"
+                            >2nd<br /><br />
+                            {{second_name}} <br /><br /><td>{{second.team_score}} </td></span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="col-md-4">
+                          <div id="the-ribbon" class="award-ribbonthree">
+                            <span class="award-ribbonthree-text"
+                              >3rd <br /><br />
+                              {{third_name}} <br /><br /><td>{{third.team_score}} </td></span>
                           </div>
-                        </div> -->
-              
-                        {% for team in teams %}
-                        {% if team.place == 1 %}
-                          <div class="col-md-4">
-                            <div id="the-ribbon" class="award-ribbonone">
-                              <span class="award-rib
-                              bonone-text"
-                                >1st<br /><br />
-                                {{team.user}}<br />
-                                <br /><td>{{team.score}} </td></span>
-                            </div>
-                          </div>
-                          {% endif %}
-                        {% endfor %}
-                            
-                        {% for team in teams %}
-                        {% if team.place == 2 %}
-                            <div class="col-md-4">
-                              <div id="the-ribbon" class="award-ribbontwo">
-                                <span class="award-ribbontwo-text"
-                                  >2nd <br /><br />
-                                  {{team.user}} <br />
-                                
-                                  <br /><td>{{team.score}} </td></span>
-                              </div>
-                            </div>
-                            {% endif %}
-                        {% endfor %}
-              
-                        {% for team in teams %}
-                        {% if team.place == 3 %}
-                            <div class="col-md-4">
-                              <div id="the-ribbon" class="award-ribbonthree">
-                                <span class="award-ribbonthree-text"
-                                  >3rd <br /><br />
-                                  {{team.user}} <br />
-                                  <br /><td>{{team.score}} </td></span>
-                              </div>
-                            </div>
-                            {% endif %}
+                        </div>
                     </div>
                   </div>
                    
+                {% for t in teamResult %}
                   <div class="row justify-content-between py-2 mt-0" id="one">
-                    <div class="col-2 mid-align" id="bor">4th</div>
-                                {{team.user}}
-        
-                        <span class="mid-align"><td>{{team.team_score}} </td></span>
+                    <div class="col-2 mid-align" id="bor">{{ forloop.counter|add:3 }}</div>
+                    {% for k,v in cn.items %}
+                    {% if v == t %}
+                      {{k}}
+                    {% endif %}
+                    {% endfor %}
+                        <span class="mid-align"><td>{{t.team_score}} </td></span>
                         
                       </div>
-                      {% endfor %}
+                {% endfor %}
       </div>
                 
       </div>

@@ -266,8 +266,8 @@
             <button type="button" class="console-btn d-flex flex-wrap " data-toggle="collapse" id="console-btn"
               data-target="#test-cases">
               Console
-              <ion-icon name="chevron-up-outline" class="up mx-2 "></ion-icon>
-              <ion-icon name="chevron-down-outline" class="down hidden"></ion-icon>
+              <ion-icon name="chevron-up-outline" style="font-size: 20px;" class="up mx-2 "></ion-icon>
+              <ion-icon name="chevron-down-outline" style="font-size: 20px;"  class="down hidden"></ion-icon>
             </button>
           </div>
           <div class="submit-btn">
@@ -321,17 +321,17 @@
 
   <script>
     
-const submitBtn = document.querySelector('#submit-btn');
-const consoleBtn=document.querySelector('#console-btn');
-const statusDiv = document.querySelector('.Status');
-const consoleDiv = document.querySelector('.consoleBlocks');
+// const submitBtn = document.querySelector('#submit-btn');
+// const consoleBtn=document.querySelector('#console-btn');
+// const statusDiv = document.querySelector('.Status');
+// const consoleDiv = document.querySelector('.consoleBlocks');
 
-submitBtn.addEventListener('click', () => {
-  statusDiv.scrollIntoView({ behavior: 'smooth' });
-});
-consoleBtn.addEventListener('click', () => {
-  consoleDiv.scrollIntoView({ behavior: 'smooth' });
-});
+// submitBtn.addEventListener('click', () => {
+//   statusDiv.scrollIntoView({ behavior: 'smooth' });
+// });
+// consoleBtn.addEventListener('click', () => {
+//   consoleDiv.scrollIntoView({ behavior: 'smooth' });
+// });
 
 // console.log("sham sham ")
 
@@ -361,9 +361,11 @@ consoleBtnn.addEventListener("click", function() {
 
    if(editor1.classList.contains("hidden")){
     editor1.classList.remove("hidden");
+    langSelect.classList.remove("hidden");
    }
    else{
        editor1.classList.add("hidden");
+       langSelect.classList.add("hidden");
    }
 
 });
@@ -408,6 +410,7 @@ var que_no='{{question.q_id}}';
         },0)
     
   </script>
+  {% include "ajax/rcCoadingPage.html" %}
 </body>
 
 </html>

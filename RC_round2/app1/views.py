@@ -1,3 +1,5 @@
+from curses import termname
+from time import strftime
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import *
@@ -296,10 +298,44 @@ def submissions(request):
 
 @login_required(login_url='login')
 def result(request):
-    teamResult = Team.objects.all()
+    currteam = Team.objects.get(user=request.user)
+    teamResult = Team.objects.all().order_by('team_score').reverse()
     context ={}
-    context["teamResult"]=teamResult
-    print(context["teamResult"])
+    context["currteam"] = currteam
+
+    context["first"] = teamResult[0]
+    context["first_name"] = str()
+    for x in teamResult[0].user.all() :
+        context["first_name"] += (x.username + " ")
+
+    context["second"] = teamResult[1]
+    context["second_name"] = str()
+    for w in teamResult[1].user.all() :
+        context["second_name"] += (w.username + " ")
+
+    context["third"] = teamResult[2]
+    context["third_name"] = str()
+    for v in teamResult[2].user.all() :
+        context["third_name"] += (v.username + " ")
+
+    context["teamResult"] = teamResult[3:6]
+    cn = dict()
+    for i in range(len(teamResult)) :
+        for j in teamResult[i].user.all() :
+            print('t:',teamResult[i],j.username)
+            cn[j.username] = teamResult[i]
+        if currteam == teamResult[i] :
+            context["currteam_rank"] = i+1
+    context['cn'] = cn
+    print(cn)
     return render(request,"app1/result.html",context)
 
-    
+@login_required(login_url='login')
+def submission_detail(request):
+    if request.method == 'POST':
+        team_time = request.POST.get('s_time')
+        print(team_time)
+        t_time = team_time
+        detail = Submission.objects.filter(s_time =team_time).first()
+        print(detail)
+    return JsonResponse({'hello' : 'hello'})

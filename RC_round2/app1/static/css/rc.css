@@ -166,7 +166,7 @@
 
 /* End Buttons  */
 .console-btn{
-    width: 120px;
+    width: 125px;
     margin-left: 10px;
    
     border-radius: 10px;
@@ -378,6 +378,8 @@
     background-color: #022527;;
     color: #ffffff;
     font-family: 'Poppins',sans-serif;
+    padding: 0%;
+    min-width: 100% ;
   }
   
 

@@ -8,6 +8,7 @@ $("#getOutput").on("click", function() {
     console.log("run clicked");
     let userCode = document.getElementById("rcTestip").value;
     let id = "{{ question.q_id }}";
+    console.log(id);
     let url = '/getRCipOP' ; // Replace 'getRCipOP' with the correct view name
     console.log(userCode)
     $.ajax({
@@ -31,4 +32,13 @@ $("#getOutput").on("click", function() {
     });
 });
 
+
+</script>
+
+<script>
+    function fun() {
+        // console.log("btn clickd")
+        // a = document.getElementById("s_time")
+        console.log(this.value)
+    }
 </script>
