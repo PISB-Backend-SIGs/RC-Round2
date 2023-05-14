@@ -130,7 +130,7 @@
     
     margin-top: 3%;
     display: grid;
-    padding-bottom: 10px;
+   
    
 }
 .codehere
@@ -173,7 +173,7 @@
 }
 .submit-strip{
     display: grid;
-    position: fixed;
+    
     grid-template-columns:33% 33% 33% ;
 }
 .submit-btn{
@@ -366,7 +366,7 @@
     grid-template-columns: 45% 45%;
     margin: auto;
     height: 75%;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 
 
   }
@@ -504,6 +504,7 @@
     height: 40px;
     width: 100%;
     font-size:15px;
+    resize:none
 }
 
  .inputs-output{

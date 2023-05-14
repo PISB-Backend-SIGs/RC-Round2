@@ -123,6 +123,10 @@ def question(request,id):
     context["player"]=player
     context["team"]=team
     context["isSolved"]=False
+    end_time = Contest_time.objects.get(id=1)
+    var = str(end_time.end_time.astimezone())
+    context["end_time"]=var
+
 
     try:
         submission = Submission.objects.filter(team=team,q_id=question,q_status="AC").last()
@@ -261,7 +265,7 @@ def leaderboard(request):
 
 
 # from django.contrib.auth.decorators import user_passes_test
-# @user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)s
 @only_superuser
 @login_required(login_url='login')
 def settingwale(request):
