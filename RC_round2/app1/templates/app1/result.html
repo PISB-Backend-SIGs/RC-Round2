@@ -15,8 +15,8 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static 'css/Result.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/coding_color.css' %}" />
+    <link rel="stylesheet" href="{% static 'app1/css/Result.css' %}" />
+    <link rel="stylesheet" href="coding_color.css" />
     <script
       src="https://kit.fontawesome.com/84ff0cdea4.js"
       crossorigin="anonymous"
@@ -29,8 +29,7 @@
     <nav class="navbar navbar-expand-lg navbarr">
       <div class="container-fluid">
         <a class="navbar-brand navvi" href="#" style="padding: 0px"
-          ><img src="{% static 'images/revb.png' %}" alt="Clash Logo" height="30px"
-        /></a>
+          ><img src="{% static 'app1/images/clashwhite.png' %}" alt="Clash Logo" height="30px"/></a>
         
 
         <button
@@ -40,16 +39,14 @@
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <i class="fas fa-bars" style="color: white"></i>
         </button>
         <div
           class="collapse navbar-collapse stroke"
-          id="navbarSupportedContent"
-        >
+          id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a
                 class="nav-link active navvi"
                 aria-current="page"
@@ -66,12 +63,12 @@
                 style="margin-left: 10px; margin-right: 10px"
                 >Submissions</a
               >
-            </li>
+            </li> -->
 
             <li class="nav-item navvi">
               <a
                 class="nav-link navvi"
-                style="margin-left: 10px; margin-right: 10px; cursor: pointer"
+                style="margin-left: 10px; margin-right: 10px; cursor: pointer;color:lightblue"
                 data-bs-toggle="modal"
                 data-bs-target="#LogoutModal"
                 >Logout</a
@@ -82,6 +79,7 @@
               </button> -->
 
               <!-- Modal -->
+              
             </li>
           </ul>
         </div>
@@ -89,20 +87,15 @@
         class="navbar-brand navvi pisblogo"
         href="https://pictieee.in/"
         style="padding: 0px; margin-left: 20px"
-        ><img src="{% static 'images/pisblogo.png' %}" alt="Clash Logo" height="30px"
+        ><img src="{% static 'app1/images/pisblogo.png' %}" alt="Clash Logo" height="30px"
         /></a>
       </div>
     </nav>
     
-    <div
-      class="modal fade"
-      id="LogoutModal"
-      tabindex="-1"
-      aria-labelledby="LogoutModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
+
           <div class="modal-header">
             <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
             <button
@@ -112,26 +105,27 @@
               aria-label="Close"
             ></button>
           </div>
+
           <div class="modal-body text-center">
             Are you sure you want to logout ?
           </div>
+
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button type="button" class="btn btn-danger">
-              Logout
-            </button>
+              data-bs-dismiss="modal"> Cancel </button>
+
+            <button type="button" class="btn btn-danger"> Logout </button>
           </div>
+
         </div>
       </div>
     </div>
     <!-- your code goes here -->
-    <div class="container-fluid" id="b" style="max-height: calc(100vw - 120px)">
+  <div class="cont">
+
+    <div class="container-fluid" id="b" >
       <div class="row" id="info">
         <div class="col-md-3 user mid-align">
         
@@ -139,47 +133,54 @@
             <div class="col-2 tip"></div>
           </div> -->
           <div class="row justify-content-around margin_side gx-1" id="main-content">
-            <div class="col-md-10 box border border-3 border-dark">
-              <div class="row mt-2 pt-1 fw-bold gx-1">
-                <div class="col-md-12 fs-3 mt-1 down_bor2">Your Result</div>
-              </div>
-              <div class="row fs-4">
-                <div class="col-md-12 font_wt"><h3>Rank</h3>
-                      {{teamResult.team_id}}
-                </div>
-              </div>
-              <div class="row fs-4 down_bor gx-1">
-              </div>
-              <div class="row fs-4">
-                <div class="col-md-12 font_wt">
-                  <h3>Score</h3>
-                  {{teamResult.team_score}}</div>
-              </div> <div class="row fs-4">
-                <div class="col-md-12 font_wt">
-                  <h3>Attempts</h3>
-                  {{teamResult.team_attempted}}
-                </div>
+            <div class="col-md-10 box " id="content-box">
+              <div class="row mt-2 pt-1 gx-1">
+                <div class="col fs-3 mt-1 down_bor2" id="headtag">Your Result</div>
               </div>
 
+
+              <div class="row fs-4" id="onetri">
+                <div class="col-md-12 font_wt">
+                  <h3 id="tri">Rank</h3>
+                  {{teamResult.t_rank}}</div>
               </div>
-             
+
               <!-- <div class="row fs-4 down_bor gx-1">
               </div> -->
-              {% comment %} <div class="row fs-4">
-              <div class="col-md-12 font_wt">{{team.user}}<h3>HEllo</h3></div>
+
+              <div class="row fs-4" id="onetri">
+                <div class="col-md-12 font_wt">
+                  <h3 id="tri">Score</h3>
+                  {{teamResult.team_score}}</div>
+              </div>
+              
+              <div class="row fs-4" id="onetri">
+                <div class="col-md-12 font_wt">
+                  <h3 id="tri">Question <br>Attempts</h3>
+                  {{teamResult.team_attempted}}</div>
+              </div>
+           </div>
+
+              <!-- <div class="row fs-4 down_bor gx-1">
+              </div> -->
+              {% comment %} 
+              <!-- <div class="row fs-4">
+                  <div class="col-md-12 font_wt">{{team.user}}<h3>HEllo</h3></div>
+              </div>  -->
+              {% endcomment %}
+              {% comment %}
+              <!-- <div class="row fs-4">
+                <div class="col-md-12">4</div> -->
               </div> {% endcomment %}
-              {% comment %} <div class="row fs-4">
-                <div class="col-md-12">4</div>
-              </div> {% endcomment %}
-            </div>
-        </div>
-        
+          </div>
       </div>
-        <div class="col-md-9 mid-align">
-          <div class="row justify-content-center">
-            <div
-              class="row justify-content-evenly align-items-center mt-3 mb-4" >
-              {% comment %} {% for team in teams %}
+  </div>
+
+  <div class="col-md-6 mid-align">
+    <div class="row justify-content-center">
+      <div class="row justify-content-evenly align-items-center mt-3 mb-4" >
+              {% comment %} 
+              {% for team in teams %}
               {{ team.place }}
             {% endfor %} {% endcomment %}
             {% comment %} >{% for team in teams %}
@@ -195,18 +196,25 @@
                 <td>{{team.Time|time:"h:i"}}</td>
             </tr>
           {% endfor %} {% endcomment %}
-          
+          <!-- <div class="col-md-4">
+            <div id="the-ribbon" class="award-ribbonone">
+              <span class="award-rib
+              bonone-text"
+                >1st<br /><br />
+                {{team.user}}<br />
+                <br /><td>{{team.score}} </td></span>
+            </div>
+          </div> -->
 
           {% for team in teams %}
           {% if team.place == 1 %}
-              <div class="col-md-4">
+            <div class="col-md-4">
               <div id="the-ribbon" class="award-ribbonone">
                 <span class="award-rib
                 bonone-text"
                   >1st<br /><br />
-                  {{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %} <br />
+                  {{team.user}}<br />
                   <br /><td>{{team.score}} </td></span>
-                
               </div>
             </div>
             {% endif %}
@@ -218,7 +226,7 @@
                 <div id="the-ribbon" class="award-ribbontwo">
                   <span class="award-ribbontwo-text"
                     >2nd <br /><br />
-                    {{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %} <br />
+                    {{team.user}} <br />
                   
                     <br /><td>{{team.score}} </td></span>
                 </div>
@@ -229,66 +237,68 @@
           {% for team in teams %}
           {% if team.place == 3 %}
               <div class="col-md-4">
-                <div id="the-ribbon" class="award-ribbontwo">
-                  <span class="award-ribbontwo-text"
+                <div id="the-ribbon" class="award-ribbonthree">
+                  <span class="award-ribbonthree-text"
                     >3rd <br /><br />
-                    {{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %} <br />
+                    {{team.user}} <br />
                     <br /><td>{{team.score}} </td></span>
                 </div>
               </div>
               {% endif %}
           {% endfor %}
-            </div>
-          </div>
-          <div class="row justify-content-around bottom">
+      </div>
+    </div>
+          
+    <div class="row justify-content-around bottom">
             <!-- <div class="col-11"> -->
               <!-- <div class="container fs-5"> -->
                 <!-- <div class="row justify-content-around py-2" id="one2">
                 </div> -->
                  
-                <div class="row justify-content-around py-2 mt-0" id="one">
-                <div class="col-2 mid-align" id="bor">4th</div>
+          <div class="row justify-content-between py-2 mt-0" id="one">
+            <div class="col-2 mid-align" id="bor">4th</div>
                 {% for team in teams %}
                   {% if team.place == 4 %}
-                        {{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %} 
+                        {{team.user}}
 
-                <span><td>{{team.score}} </td></span>
-               </div>
+                <span class="mid-align"><td>{{team.score}} </td></span>
+          </div>
                   <!-- </div> -->
                   {% endif %}
                 {% endfor %}
             <!-- </div> -->
-                <div class="row justify-content-around py-2" id="one">
+          <div class="row justify-content-between py-2" id="one">
                   <div class="col-2 mid-align" id="bor">5th</div>
                     {% for team in teams %}
                       {% if team.place == 5 %}
-                            {{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %} &nbsp
-                            <td>{{team.score}} </td></span>
-                        </div>
-
-                        <div class="row justify-content-around py-2" id="one">
-                          <div class="col-2 mid-align" id="bor">6th</div>
-        
-                            {% for team in teams %}
-                              {% if team.place == 6 %}
-                                    {{team.user1}} {% if "user2" in team %}and {{team.user2}}{% endif %} 
-                                    &nbsp<td>{{team.score}} </td></span>
-                        </div>
+                            {{team.user}}
+                  <span class="mid-align"> <td>{{team.score}} </td></span>
           </div>
+
+          <div class="row justify-content-between py-2" id="one">
+                          <div class="col-2 mid-align" id="bor">6th</div>
+            
+                                {% for team in teams %}
+                                  {% if team.place == 6 %}
+                                        {{team.user}}  
+                                        &nbsp
+                                        <span class="mid-align"><td>{{team.score}} </td></span>
+          </div>
+    </div>
                       {% endif %}
                     {% endfor %}
               
-                      </div>
+    </div>
                       {% endif %}
                     {% endfor %}
-                </div>
-                <div style="height: 56px; display: block"></div>
-              </div>
+  </div>
+                <!-- <div style="height: 56px; display: block"></div> -->
+              <!-- </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Footer goes here -->
     <!-- <div class="clear"></div>

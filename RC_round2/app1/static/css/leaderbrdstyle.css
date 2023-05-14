@@ -242,6 +242,6 @@ table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, ta
 
     
 }
-.modal-content {
-    
+#myTable{
+    width: 84%;
 }
