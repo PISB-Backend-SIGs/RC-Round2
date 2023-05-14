@@ -296,10 +296,10 @@ def submissions(request):
 
 @login_required(login_url='login')
 def result(request):
-    user = User.objects.get(username=request.user)
-    teamResult = Team.objects.get(user=user)
+    teamResult = Team.objects.all()
     context ={}
     context["teamResult"]=teamResult
+    print(context["teamResult"])
     return render(request,"app1/result.html",context)
 
     
